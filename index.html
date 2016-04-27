@@ -9,32 +9,42 @@
     <link rel="stylesheet" href="css/main.css"/>
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script> 
-
 </head>
-
 <body class="">
     <div id="main-wrapper" class="">
-
+        <header class="row">
+             <h1>MLB Organization History</h1>
+             <h2>By: Cory Brown</h2>
+        </header>
         <div id="main-content" class="container">
-            <header class="row">
-                <div class="social-links col-md-12"></div>
-                <div class="col-md-12">
-                    <h1>MLB Teams Relationship Between Wins and Attendance</h1>
-                    <h2>By: Cory Brown</h2>
-                    <h3>Year: <span id="slidertext">1985</span></h3>
-                    <input id="slider" type="range" min="1985" max="2014" value="1985" step="1" />
-                    <h4>Range: <span id="range">1985 - 2014</span></h4>
+            <div class="social-links col-md-12"></div>
+                <div class="col-md-12"> 
+                    <h3>Year: <span id="slidertext">1980</span></h3>
+                    <input id="slider" type="range" min="1980" max="2014" value="1980" step="1" />
+                    <h4>Range: <span id="range">1980 - 2014</span></h4>
+                <div class="btn-group" data-toggle="buttons">
+                  <label id="west" class="btn btn-primary">
+                    <input value="West" class="div" type="radio" name="options" id="option1" autocomplete="off">AL/NL West
+                  </label>
+                  <label id="central" class="btn btn-primary">
+                    <input value="Central" type="radio" class="div" name="options" id="option2" autocomplete="off" checked>AL/NL Central
+                  </label>
+                  <label id="east" class="btn btn-primary">
+                    <input value="East" type="radio" class="div" name="options" id="option2" autocomplete="off" checked>AL/NL East
+                  </label>
                 </div>
-            </header>
+            </div>
+     
             <section class="row">
             <div class="col-md-12 chart"></div>
             </section>
         </div>
+
+
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-
 </body>
 </html>

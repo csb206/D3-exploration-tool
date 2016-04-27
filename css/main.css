@@ -3,7 +3,22 @@
 
 body {
   font: 10px sans-serif;
+  background-color: rgba(51, 51, 51, 0.09);
+
 }
+
+label#west.btn.btn-primary {
+    background-color: #3587D4;
+}
+
+label#central.btn.btn-primary {
+    background-color: #4DAF4A;
+}
+
+label#east.btn.btn-primary {
+    background-color: #E41A1C;
+}
+
 
 .axis path,
 .axis line {
@@ -36,7 +51,6 @@ h1 {
 
 h2 {
 	text-align: center;
-	padding-bottom: 1em;
 }
 
 div.btn-group {
