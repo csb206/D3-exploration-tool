@@ -68,23 +68,7 @@ $(function() {
     
     // draw chart
     drawChart();
-
-    // Assign a change event to input elements
-    // then filter and update the data organized by division
-    
-    var data = dataArr[currentYr];
-    var orgs = svg.selectAll(".dot").data(data, function(d) {
-          $("input").on("change", function() {
-            var division = $(this).val(); 
-            console.log(division);
-            console.log(d.Lg);
-            console.log(division != d.Lg);
-            if (d.Lg.includes(division)) {
-              orgs.exit().remove();
-            } 
-          });     
-    }) 
-    
+      
     // Assign a change event to slider element
     // filters the data year by year on chart and updates chart
     $("#slider").on("change", function() {
@@ -148,6 +132,7 @@ $(function() {
       svg.append("circle").attr("cx", legendX).attr("cy", legendY + 93 + 110).attr("r", 10).style("fill", "#bbb").attr("stroke", "#000");
       svg.append("text").attr("class", "label").attr("x", legendX + 30).attr("y", legendY + 210).style("text-anchor", "start").text("$10 mill+");
       
+      // update the chart with selected circles 
       updateChart();  
     }
 
