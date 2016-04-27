@@ -1,5 +1,5 @@
 # D3-exploration-tool
-This is my [first creation](http://students.washington.edu/csb206/) of a chart in D3 using MLB team data. 
+This is my [first creation](http://students.washington.edu/csb206/INFO474/D3-exploration-tool/) of a chart in D3 using MLB team data. 
 
 For my visual layout, using a scatterplot is an optimal choice for expressing this data because it effectively represents the relationship between team wins, season attendance and the payroll of each MLB organization. Labeling the y axis as season attendance in increments of 500,000 and the x axis as wins allows for an understandable perception of MLB team success. Each team is represented by a circle on the chart with a tooltip that allows the user to hover over the circle to view the team name. The color of each circle indicates what division the team belongs to, and the size of the circle indicates the amount of payroll for the team. There is a legend to clarify the division color, as well as the payroll amount. All of this quantitative data implies the viewer to ask several questions about a team's performance on any given year. 
 
