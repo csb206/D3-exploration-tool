@@ -71,6 +71,7 @@ $(function() {
 
     // Assign a change event to input elements
     // then filter and update the data organized by division
+    
     var data = dataArr[currentYr];
     var orgs = svg.selectAll(".dot").data(data, function(d) {
           $("input").on("change", function() {
@@ -120,31 +121,32 @@ $(function() {
         .style("text-anchor", "end")
         .text("Season Attendance (# of fans)")
 
+       // legends x position 
+      var legendX = 800;
+
       // legends y position
-      var LYP = 160;
-      // legends x position 
-      var LXP = 800;
+      var legendY = 160;
         
-      svg.append("text").attr("class", "label").attr("x", LXP - 5).attr("y", LYP).text("Division").style("font-weight", "bold");
+      svg.append("text").attr("class", "label").attr("x", legendX - 5).attr("y", legendY).text("Division").style("font-weight", "bold");
 
       //color legend: organizes team by division (AL/NL West, Central or East)
-      svg.append("circle").attr("cx", LXP).attr("cy", LYP + 20).attr("r", 12).style("fill", "rgb(53, 135, 212)").attr("stroke", "#000");
-      svg.append("text").attr("class", "label").attr("x", LXP + 15).attr("y", LYP + 25).style("text-anchor", "start").text("AL/NL West");
-      svg.append("circle").attr("cx", LXP).attr("cy", LYP + 50).attr("r", 12).style("fill", "rgb(77, 175, 74)").attr("stroke", "#000");
-      svg.append("text").attr("class", "label").attr("x", LXP + 15).attr("y", LYP + 55).style("text-anchor", "start").text("AL/NL Central");
-      svg.append("circle").attr("cx", LXP).attr("cy", LYP + 80).attr("r", 12).style("fill", "rgb(228, 26, 28)").attr("stroke", "#000");
-      svg.append("text").attr("class", "label").attr("x", LXP + 15).attr("y", LYP + 85).style("text-anchor", "start").text("AL/NL East");
-      svg.append("text").attr("class", "label").attr("x", LXP - 5).attr("y", LYP + 110).text("Payroll").style("font-weight", "bold");
+      svg.append("circle").attr("cx", legendX).attr("cy", legendY + 20).attr("r", 12).style("fill", "rgb(53, 135, 212)").attr("stroke", "#000");
+      svg.append("text").attr("class", "label").attr("x", legendX + 15).attr("y", legendY + 25).style("text-anchor", "start").text("AL/NL West");
+      svg.append("circle").attr("cx", legendX).attr("cy", legendY + 50).attr("r", 12).style("fill", "rgb(77, 175, 74)").attr("stroke", "#000");
+      svg.append("text").attr("class", "label").attr("x", legendX + 15).attr("y", legendY + 55).style("text-anchor", "start").text("AL/NL Central");
+      svg.append("circle").attr("cx", legendX).attr("cy", legendY + 80).attr("r", 12).style("fill", "rgb(228, 26, 28)").attr("stroke", "#000");
+      svg.append("text").attr("class", "label").attr("x", legendX + 15).attr("y", legendY + 85).style("text-anchor", "start").text("AL/NL East");
+      svg.append("text").attr("class", "label").attr("x", legendX - 5).attr("y", legendY + 110).text("Payroll").style("font-weight", "bold");
 
       //size legend : organizes team by payroll amount. (100 mill+, 50 mill+, 25 mill+, 10 mill+)
-      svg.append("circle").attr("cx", LXP).attr("cy", LYP + 30 + 110).attr("r", 25).style("fill", "#bbb").attr("stroke", "#000");
-      svg.append("text").attr("class", "label").attr("x", LXP + 30).attr("y", LYP + 140).style("text-anchor", "start").text("$100 mill+");
-      svg.append("circle").attr("cx", LXP).attr("cy", LYP + 60 + 110).attr("r", 20).style("fill", "#bbb").attr("stroke", "#000");
-      svg.append("text").attr("class", "label").attr("x", LXP + 30).attr("y", LYP + 170).style("text-anchor", "start").text("$50 mill+");
-      svg.append("circle").attr("cx", LXP).attr("cy", LYP + 80 + 110).attr("r", 15).style("fill", "#bbb").attr("stroke", "#000");
-      svg.append("text").attr("class", "label").attr("x", LXP + 30).attr("y", LYP + 190).style("text-anchor", "start").text("$25 mill+");
-      svg.append("circle").attr("cx", LXP).attr("cy", LYP + 93 + 110).attr("r", 10).style("fill", "#bbb").attr("stroke", "#000");
-      svg.append("text").attr("class", "label").attr("x", LXP + 30).attr("y", LYP + 210).style("text-anchor", "start").text("$10 mill+");
+      svg.append("circle").attr("cx", legendX).attr("cy", legendY + 30 + 110).attr("r", 25).style("fill", "#bbb").attr("stroke", "#000");
+      svg.append("text").attr("class", "label").attr("x", legendX + 30).attr("y", legendY + 140).style("text-anchor", "start").text("$100 mill+");
+      svg.append("circle").attr("cx", legendX).attr("cy", legendY + 60 + 110).attr("r", 20).style("fill", "#bbb").attr("stroke", "#000");
+      svg.append("text").attr("class", "label").attr("x", legendX + 30).attr("y", legendY + 170).style("text-anchor", "start").text("$50 mill+");
+      svg.append("circle").attr("cx", legendX).attr("cy", legendY + 80 + 110).attr("r", 15).style("fill", "#bbb").attr("stroke", "#000");
+      svg.append("text").attr("class", "label").attr("x", legendX + 30).attr("y", legendY + 190).style("text-anchor", "start").text("$25 mill+");
+      svg.append("circle").attr("cx", legendX).attr("cy", legendY + 93 + 110).attr("r", 10).style("fill", "#bbb").attr("stroke", "#000");
+      svg.append("text").attr("class", "label").attr("x", legendX + 30).attr("y", legendY + 210).style("text-anchor", "start").text("$10 mill+");
       
       updateChart();  
     }
@@ -176,6 +178,13 @@ $(function() {
             }
           });
 
+      // select all circles and apply a tooltip
+      // if placed below orgs.transition wont work with some teams..?
+      $("circle").tooltip ({
+        'container': 'body',
+        'placement': 'bottom'
+      });
+
       // remove elements that are no longer in the data
       orgs.exit().remove();
 
@@ -196,11 +205,7 @@ $(function() {
             }
           });
       }
-      
-      // select all circles and apply a tooltip
-      $("circle").tooltip({
-        'container': 'body',
-        'placement': 'bottom'
-      });
+
+
    });
 });    
